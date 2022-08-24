@@ -1,31 +1,77 @@
-var symbols = ['./images/circle.png', './images/cross.png'];
+// let X_CLASS = 'x'
+// let O_CLASS = 'o'
+let root = document.documentElement;
 
-class player {
-    constructor(name, symbol) {
-        this.name = name;
-        this.symbol = symbol;
-        this.score = 0;
+
+
+let boxesElements = document.querySelectorAll('.box');
+let circleTurn = true;
+
+boxesElements.forEach(box => {
+    box.addEventListener('click', handleclick, { once: true })
+});
+
+function handleclick(event) {
+    let box = event.target
+    let currentClass = ''
+    if (circleTurn) {
+        currentClass = 'o'
+    } else {
+        currentClass = 'x'
+    }
+
+    box.classList.add(currentClass)
+    if (checkWins(currentClass)) {
+        document.querySelector('#winningMessage').textContent = currentClass.toUpperCase() + ' Wins!'
+    } else if (checkTie()) {
+        document.querySelector('#winningMessage').textContent = "It's a tie!"
+
+    }
+
+    swapTurns()
+}
+
+// function playSound() {
+
+// }
+
+// function placeMark(box, currentClass) {
+//     box.classList.add(currentClass)
+// }
+
+function swapTurns() {
+    circleTurn = !circleTurn
+    if (circleTurn) {
+        root.style.setProperty('--current-mark', "url('./images/circle.png')")
+    } else {
+        root.style.setProperty('--current-mark', "url('./images/cross.png')")
     }
 }
 
-var players = [
-    new player('Player 1', symbols[0]),
-    new player('Player 2', symbols[1])
+let COMBINATIONS = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
 ]
 
-var boxContainer = document.querySelector('.container')
-boxContainer.addEventListener('click', function (event) {
-    var box = event.target
-    if (box.className === 'box') {
-        box.style.backgroundImage = `url(${symbols[0]})`;
-    }
-})
+function checkWins(currentClass) {
+    return COMBINATIONS.some(combination => {
+        return combination.every(i => {
+            return boxesElements[i].classList.contains(currentClass);
+        })
+    })
+}
 
-document.querySelector('#reset').addEventListener('click', startNewGame)
-
-function startNewGame() {
-    var boxes = document.querySelectorAll('.box');
-    for (var i = 0; i < boxes.length; i++) {
-        boxes[i].style.backgroundImage = '';
+function checkTie() {
+    for (let i = 0; i < 9; i++) {
+        if (boxesElements[i].classList.length === 1) {
+            return false;
+        }
     }
+    return true
 }

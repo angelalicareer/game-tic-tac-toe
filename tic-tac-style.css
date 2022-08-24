@@ -1,3 +1,7 @@
+ :root {
+        --current-mark: url('./images/circle.png');
+ }
+
  .box {
         border: 5px solid grey;
         height: 100px;
@@ -5,6 +9,24 @@
         margin: 0;
         flex: 1 0 33%;
         background-size: 100%;
+        cursor: pointer;
+ }
+
+ .box.x,
+ .box.o {
+        cursor: not-allowed;
+ }
+
+ .box.x {
+        background-image: url('./images/cross.png');
+ }
+
+ .box.o {
+        background-image: url('./images/circle.png');
+ }
+
+ .box:hover:not(.x):not(.o) {
+        background-image: var(--current-mark);
  }
 
  .container {
@@ -16,5 +38,18 @@
 
  header {
         margin: auto;
+        text-align: center;
+ }
+
+ #restartButton {
+        font-size: 15px;
+        background-color: gray;
+        border: 3px solid black;
+        padding: 3px;
+        margin: auto;
+        display: flex;
+ }
+
+ .winning-message {
         text-align: center;
  }

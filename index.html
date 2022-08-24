@@ -7,19 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-tac-toe</title>
     <link rel="stylesheet" href="./tic-tac-style.css">
+    <script src="./tic-tac-script.js" defer></script>
 </head>
 
 <body>
     <header>
         <h1>Tic-tac-toe</h1>
-        <button id="reset">New Game</button>
+        <div id="winningMessage"></div>
     </header>
-
     <main>
-        <span>
-            <h3>O</h3>
-            <h3>'s Turn</h3>
-        </span>
         <section class="container">
             <div class="box"></div>
             <div class="box"></div>
@@ -31,12 +27,10 @@
             <div class="box"></div>
             <div class="box"></div>
         </section>
+        <section class="winning-message">
+            <button id="restartButton">Restart!</button>
+        </section>
     </main>
-
-    <footer>
-
-    </footer>
-    <script src="./tic-tac-script.js"></script>
 </body>
 
 </html>
