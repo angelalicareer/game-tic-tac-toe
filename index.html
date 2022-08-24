@@ -6,16 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-tac-toe</title>
-    <link rel="stylesheet" href="tic-tac-style.css">
-    <script scr="tic-tac-scrip.js"></script>
+    <link rel="stylesheet" href="./tic-tac-style.css">
 </head>
 
 <body>
     <header>
         <h1>Tic-tac-toe</h1>
-        <h3>o's turn</h3>
+        <button id="reset">New Game</button>
     </header>
+
     <main>
+        <span>
+            <h3>O</h3>
+            <h3>'s Turn</h3>
+        </span>
         <section class="container">
             <div class="box"></div>
             <div class="box"></div>
@@ -29,18 +33,10 @@
         </section>
     </main>
 
-    <footer></footer>
-    <script>
-        var boxesClick = document.querySelector('.container')
-        boxesClick.addEventListener('click', function (event) {
-            var box = event.target
-            if (box.className === 'box') {
-                box.style.backgroundImage = "url('https://www.pngitem.com/pimgs/m/170-1700003_transparent-background-cross-symbol-hd-png-download.png')";
-            }
+    <footer>
 
-        })
-    </script>
-
+    </footer>
+    <script src="./tic-tac-script.js"></script>
 </body>
 
 </html>
