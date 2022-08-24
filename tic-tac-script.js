@@ -60,11 +60,11 @@ let COMBINATIONS = [
 ]
 
 function checkWins(currentClass) {
-    return COMBINATIONS.some(combination => {
-        return combination.every(i => {
-            return boxesElements[i].classList.contains(currentClass);
-        })
-    })
+    for (let i = 0; i < COMBINATIONS.length; i++) {
+        if (boxesElements[COMBINATIONS[i][0]].classList.contains(currentClass) && boxesElements[COMBINATIONS[i][1]].classList.contains(currentClass) && boxesElements[COMBINATIONS[i][2]].classList.contains(currentClass)) {
+            return true
+        }
+    } return false
 }
 
 function checkTie() {
