@@ -1,5 +1,4 @@
-// let X_CLASS = 'x'
-// let O_CLASS = 'o'
+
 let root = document.documentElement;
 
 
