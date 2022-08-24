@@ -16,3 +16,8 @@
         max-width: 300px;
 
  }
+
+ header {
+        margin: auto;
+        text-align: center;
+ }
