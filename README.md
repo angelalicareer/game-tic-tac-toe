@@ -3,7 +3,6 @@
 
 ## :page_facing_up: About
 - The game: it is probably the most simple game, with 2 players, playing in turn. Who marks 3 consecutive boxes in line wins the game, if no one makes it , there will be a tie!
-- 
 ## :pencil2: Planning & Problem Solving
 - Make a 3x3-box grid first
 - Set up 2 players on the second step
