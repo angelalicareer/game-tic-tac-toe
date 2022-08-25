@@ -1,55 +1,81 @@
- :root {
-        --current-mark: url('./images/circle.png');
- }
+:root {
+       --current-symbol: url('');
+}
 
- .box {
-        border: 5px solid grey;
-        height: 100px;
-        width: 100px;
-        margin: 0;
-        flex: 1 0 33%;
-        background-size: 100%;
-        cursor: pointer;
- }
+header {
+       margin: auto;
+       text-align: center;
+}
 
- .box.x,
- .box.o {
-        cursor: not-allowed;
- }
+h2 {
+       display: inline-block;
+}
 
- .box.x {
-        background-image: url('./images/cross.png');
- }
+.hint.win {
+       color: green;
+}
 
- .box.o {
-        background-image: url('./images/circle.png');
- }
+.hint.tie {
+       color: red;
+}
 
- .box:hover:not(.x):not(.o) {
-        background-image: var(--current-mark);
- }
+#reset {
+       font-size: 1.5em;
+}
 
- .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        margin: auto;
-        max-width: 330px;
- }
+.container {
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       margin: auto;
+       max-width: 462px;
+}
 
- header {
-        margin: auto;
-        text-align: center;
- }
+section div {
+       border: 2px solid grey;
+       height: 150px;
+       width: 150px;
+}
 
- #restartButton {
-        font-size: 15px;
-        background-color: gray;
-        border: 3px solid black;
-        padding: 3px;
-        margin: auto;
-        display: flex;
- }
+.box {
+       border: 0;
+       height: 150px;
+       width: 150px;
+       margin: 0;
+       flex: 1 0 33%;
+       background-size: 150%;
+       background-repeat: no-repeat;
+       background-position: center;
+}
 
- .winning-message {
-        text-align: center;
- }
+@-webkit-keyframes scaling {
+       From {
+              -webkit-transform: scale(1);
+       }
+
+       To {
+              -webkit-transform: scale(1.2);
+       }
+}
+
+.box.win {
+       -webkit-animation: scaling 1s infinite alternate;
+}
+
+.box:hover:not(.win):not(.o):not(.x) {
+       background-image: var(--current-symbol);
+       background-size: 150%;
+       background-repeat: no-repeat;
+       background-position: center;
+       opacity: 0.5;
+}
+
+.legend {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       text-align: center;
+}
+
+.legend img {
+       height: 120px;
+       width: 120px;
+}

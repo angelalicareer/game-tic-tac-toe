@@ -7,30 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-tac-toe</title>
     <link rel="stylesheet" href="./tic-tac-style.css">
-    <script src="./tic-tac-script.js" defer></script>
 </head>
 
 <body>
     <header>
         <h1>Tic-tac-toe</h1>
-        <div id="winningMessage"></div>
+        <h2 class="hint">'s Turn</h2><br>
+        <button id="reset">New Game</button>
     </header>
+    <hr>
     <main>
         <section class="container">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div>
+                <div class="box"></div>
+            </div>
+            <div>
+                <div class="box"></div>
+            </div>
+            <div>
+                <div class="box"></div>
+            </div>
+            <div>
+                <div class="box"></div>
+            </div>
+            <div>
+                <div class="box"></div>
+            </div>
+            <div>
+                <div class="box"></div>
+            </div>
+            <div>
+                <div class="box"></div>
+            </div>
+            <div>
+                <div class="box"></div>
+            </div>
+            <div>
+                <div class="box"></div>
+            </div>
         </section>
-        <section class="winning-message">
-            <button id="restartButton">Restart!</button>
-        </section>
+        <hr>
+        <footer class="legend">
+            <div>
+                <h3>Player 1</h3>
+                <img src="./images/circle.png" alt="circle" id="circle">
+            </div>
+            <div>
+                <h3>Player 2</h3>
+                <img src="./images/cross.png" alt="cross" id="cross">
+            </div>
+        </footer>
     </main>
+    <script src="./tic-tac-script.js"></script>
 </body>
 
 </html>
